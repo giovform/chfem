@@ -16,7 +16,7 @@ jobs:
         include:
           - os: windows-2022
             platform: win_amd64
-          - os: ubuntu-latest
+          - os: ubuntu-22.04
             platform: manylinux2014_x86_64
 
     steps:
@@ -28,12 +28,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      # Standard MSVC setup without restricted toolset version
+      # Standard MSVC setup for Windows
       - name: Set up MSVC Developer Command Prompt
         if: runner.os == 'Windows'
         uses: ilammy/msvc-dev-cmd@v1
 
-      # CUDA 12.4.1 provides native MSVC 2022 support
+      # CUDA Toolkit 12.4.1
       - name: Install CUDA Toolkit
         uses: Jimver/cuda-toolkit@v0.2.19
         with:
